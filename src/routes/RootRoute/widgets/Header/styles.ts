@@ -1,11 +1,19 @@
 import styled from 'styled-components'
 import Icon from 'src/components/Icon/Icon'
 import HorizontalScroll from 'src/components/HorizontalScroll/HorizontalScroll'
+import Link from 'src/widgets/Link/Link'
+
+const LINK_CLASS_NAME = 'navigation_active'
 
 export const Root = styled.header`
   padding: 10px 0;
   background: ${({ theme }) => theme.colors.backgroundWhite};
   box-shadow: 0 1px 1px rgb(32 35 51 / 4%), 0 2px 4px rgb(32 35 51 / 2%);
+
+  .${LINK_CLASS_NAME} {
+    color: ${({ theme }) => theme.colors.primary};
+    background: ${({ theme }) => theme.colors.primaryBg};
+  }
 `
 
 export const Top = styled.div`
@@ -58,7 +66,7 @@ export const SportIcon = styled(Icon)`
   margin-right: 5px;
 `
 
-export const SportItem = styled.div`
+export const SportItem = styled(Link).attrs({ activeClassName: LINK_CLASS_NAME })`
   ${({ theme }) => theme.typography.text_14_24}
   color: ${({ theme }) => theme.colors.secondary};
   display: flex;
@@ -67,7 +75,7 @@ export const SportItem = styled.div`
   padding: 4px 8px;
   border-radius: 5px;
   margin-right: 10px;
-  
+
   &:first-child {
     margin-left: 7px;
   }

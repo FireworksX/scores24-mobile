@@ -1,13 +1,19 @@
-import React, { SyntheticEvent } from 'react'
+import React from 'react'
 import * as Styled from './styles'
 
 interface TouchableProps {
   className?: string
-  onClick?: (e: SyntheticEvent) => any
+  tagName?: 'div' | 'a'
+  onClick?: (e?: any) => any
+  [key: string]: any
 }
 
-const Touchable: React.FC<TouchableProps> = ({ className, children, onClick }) => {
-  return <Styled.Root className={className} onClick={onClick}>{children}</Styled.Root>
+const Touchable: React.FC<TouchableProps> = ({ className, tagName = 'div', children, onClick, ...rest }) => {
+  return (
+    <Styled.Root as={tagName} className={className} onClick={onClick} {...rest}>
+      {children}
+    </Styled.Root>
+  )
 }
 
 export default Touchable
