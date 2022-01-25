@@ -9,7 +9,7 @@ export const Root = styled.div`
 `
 
 export const Header = styled(HeaderComp)`
-  position: static;
+  position: sticky;
   top: 0;
 `
 

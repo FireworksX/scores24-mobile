@@ -3,7 +3,7 @@ import IconComp from 'src/components/Icon/Icon'
 import Touchable from 'src/components/Touchable/Touchable'
 
 interface Props {
-  isActive?: boolean
+  isSelect?: boolean
 }
 
 export const Root = styled.nav`
@@ -26,8 +26,8 @@ export const Item = styled(Touchable)<Props>`
   padding: 15px 0;
   position: relative;
 
-  ${({ isActive }) =>
-    isActive &&
+  ${({ isSelect }) =>
+    isSelect &&
     css`
       ${Icon}, ${Name} {
         color: ${({ theme }) => theme.colors.primary};
