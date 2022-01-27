@@ -19,6 +19,7 @@ declare module 'styled-components' {
       background: string
       backgroundAmber: string
       backgroundWhite: string
+      backgroundSecondary: string
 
       border: string
       borderHover: string

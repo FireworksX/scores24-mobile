@@ -6,10 +6,15 @@ export const Root = styled.div`
   background: ${({ theme }) => theme.colors.backgroundWhite};
 `
 
-export const League = styled(Touchable)`
+export const League = styled.div`
+  padding: 7px 10px;
+  background: ${({ theme }) => theme.colors.backgroundSecondary};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+`
+
+export const LeagueWrapper = styled(Touchable)`
   display: flex;
   align-items: center;
-  padding: 7px 10px;
 `
 
 export const Body = styled.div``

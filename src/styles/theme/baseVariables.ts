@@ -7,6 +7,7 @@ const colors = {
   background: 'rgb(240, 242, 245)',
   backgroundAmber: 'rgb(247, 181, 0)',
   backgroundWhite: 'rgb(255, 255, 255)',
+  backgroundSecondary: 'rgb(250, 250, 250)',
 
   border: 'rgb(229, 230, 233)',
   borderHover: 'rgb(105, 168, 99)',

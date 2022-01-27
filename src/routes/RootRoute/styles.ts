@@ -6,6 +6,7 @@ export const Root = styled.div`
   background: ${({ theme }) => theme.colors.background};
   height: 100%;
   min-height: 100vh;
+  padding-bottom: 70px;
 `
 
 export const Header = styled(HeaderComp)`

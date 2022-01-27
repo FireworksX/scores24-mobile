@@ -1,6 +1,7 @@
 import { useRoute } from 'react-router5'
 import { RouteNamesType } from 'src/router/constants'
 import { Route } from 'router5'
+import { FC } from 'react'
 
 const getRenderRoutes = (routes: Route[], name: string, index = 0, accRoutes: Route[] = []) => {
   const splitNames = name.split('.')
@@ -19,7 +20,7 @@ const getRenderRoutes = (routes: Route[], name: string, index = 0, accRoutes: Ro
   return accRoutes
 }
 
-const Noop = () => <></>
+const Noop: FC = ({ children }) => <>{children}</>
 
 export const useRouteChildren = (parentRouteName: RouteNamesType) => {
   const { route, router } = useRoute()

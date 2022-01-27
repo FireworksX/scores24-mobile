@@ -4,7 +4,7 @@ import Touchable from "src/components/Touchable/Touchable";
 export const Root = styled(Touchable)`
   padding: 20px 15px;
   background: ${({ theme }) => theme.colors.backgroundWhite};
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: ${({ theme }) => theme.baseStyles.shadows.shadowBig};
   max-width: 210px;
   min-width: 130px;

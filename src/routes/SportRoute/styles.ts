@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import Icon from 'src/components/Icon/Icon'
-import HorizontalScroll from '../../components/HorizontalScroll/HorizontalScroll'
-import MatchCard from '../../widgets/MatchCard/MatchCard'
-import MatchRow from '../../widgets/MatchRow/MatchRow'
+import HorizontalScroll from 'src/components/HorizontalScroll/HorizontalScroll'
+import MatchCard from 'src/widgets/MatchCard/MatchCard'
+import MatchRow from 'src/widgets/MatchRow/MatchRow'
 
 export const Root = styled.div``
 
@@ -32,12 +32,22 @@ export const Description = styled.p`
   color: ${({ theme }) => theme.colors.secondary};
 `
 
+export const MatchesTitle = styled.h2`
+  ${({ theme }) => theme.typography.text_16_20}
+  color: ${({ theme }) => theme.colors.textColor};
+  font-weight: 600;
+`
+
 export const MatchesList = styled(HorizontalScroll)`
   padding: 0 15px 60px 15px;
 `
 
 export const Match = styled(MatchCard)`
   margin-right: 15px;
+`
+
+export const FeedWrapper = styled.div`
+  margin-top: -35px;
 `
 
 export const MatchLeague = styled(MatchRow)`
