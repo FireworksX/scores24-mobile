@@ -9,14 +9,26 @@ export const Root = styled(Touchable)`
   max-width: 210px;
   min-width: 130px;
   display: inline-block;
+  
+  &:nth-child(1) {
+    background: #D84141;
+  }
+  
+  &:nth-child(2) {
+    background: #1F8FE9;
+  }
+  
+  &:nth-child(3) {
+    background: #2B3439;
+  }
 `
 
 export const Date = styled.div`
   ${({ theme }) => theme.typography.text_12_16}
   font-weight: 500;
-  padding: 3px 15px;
-  background: ${({ theme }) => theme.colors.accentRed};
-  color: ${({ theme }) => theme.colors.textWhite};
+  padding: 3px 10px;
+  background: ${({ theme }) => theme.colors.basicWhite};
+  color: ${({ theme }) => theme.colors.textColor};
   border-radius: 10px;
   margin-bottom: 15px;
   display: inline-flex;
@@ -36,7 +48,7 @@ export const Team = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: ${({ theme }) => theme.colors.textColor};
+  color: ${({ theme }) => theme.colors.textWhite};
 
   &:last-child {
     margin-bottom: 0;

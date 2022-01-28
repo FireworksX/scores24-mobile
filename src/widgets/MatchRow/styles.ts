@@ -1,5 +1,6 @@
 import Touchable from 'src/components/Touchable/Touchable'
 import styled from 'styled-components'
+import CommonLogo from '../../components/CommonLogo/CommonLogo'
 
 export const Root = styled.div`
   display: grid;
@@ -28,18 +29,10 @@ export const TeamRow = styled.div`
   color: ${({ theme }) => theme.colors.textColor};
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 `
 
-export const Logo = styled.div`
-  width: 30px;
-  height: 30px;
+export const Logo = styled(CommonLogo).attrs({ size: 30 })`
   margin-right: 10px;
-  background: ${({ theme }) => theme.colors.skeleton};
 `
 
 export const Name = styled.div``

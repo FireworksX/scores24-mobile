@@ -8,7 +8,7 @@ interface MatchCardProps {
 const MatchCard: React.FC<MatchCardProps> = ({ className }) => {
   return (
     <Styled.Root className={className}>
-      <Styled.Date>Live</Styled.Date>
+      <Styled.Date>23.02.2022</Styled.Date>
       <Styled.Logos />
       <Styled.Team>
         <Styled.TeamName>Арсенал</Styled.TeamName>1
