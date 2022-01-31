@@ -1,0 +1,32 @@
+#import '../../../graphql/fragments/CalendarMatch.gql'
+
+query SportMatches(
+  $langSlug: String!
+  $sportSlug: String!
+  $datebetween: [String]!
+  $withLive: Boolean
+  $isLive: Boolean
+) {
+  LeagueList(
+    lang: $langSlug
+    sport_slug: $sportSlug
+    datebetween: $datebetween
+    with_live: $withLive
+    is_live: $isLive
+  ) {
+    leagues {
+      isOpen: is_open
+      league {
+        slug
+        name
+        country {
+          name
+          iso
+        }
+      }
+      matches {
+        ...CalendarMatch
+      }
+    }
+  }
+}

@@ -1,6 +1,9 @@
 import Touchable from 'src/components/Touchable/Touchable'
 import styled from 'styled-components'
-import CommonLogo from '../../components/CommonLogo/CommonLogo'
+import CommonLogo from 'src/components/CommonLogo/CommonLogo'
+import Link from 'src/widgets/Link/Link'
+import { buildName } from 'src/utils/buildName'
+import { ROUTE_NAMES } from 'src/router/constants'
 
 export const Root = styled.div`
   display: grid;
@@ -22,16 +25,21 @@ export const Time = styled.div`
   text-align: center;
 `
 
-export const Teams = styled(Touchable)``
+export const Teams = styled(Link)``
 
 export const TeamRow = styled.div`
   ${({ theme }) => theme.typography.text_14_20}
   color: ${({ theme }) => theme.colors.textColor};
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `
 
-export const Logo = styled(CommonLogo).attrs({ size: 30 })`
+export const Logo = styled(CommonLogo).attrs({ size: 24 })`
   margin-right: 10px;
 `
 

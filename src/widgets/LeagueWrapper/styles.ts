@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 import Touchable from 'src/components/Touchable/Touchable'
 import Icon from 'src/components/Icon/Icon'
+import CommonLogo from 'src/components/CommonLogo/CommonLogo'
 
 export const Root = styled.div`
-  background: ${({ theme }) => theme.colors.backgroundWhite};
+  padding: 10px;
 `
 
 export const League = styled.div`
   padding: 7px 10px;
-  background: ${({ theme }) => theme.colors.backgroundSecondary};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: 10px;
+  margin-bottom: 10px;
 `
 
 export const LeagueWrapper = styled(Touchable)`
@@ -24,7 +25,7 @@ export const Delimiter = styled.div`
   background: ${({ theme }) => theme.colors.border};
 `
 
-export const Logo = styled.div`
+export const Logo = styled(CommonLogo)`
   width: 60px;
   margin-right: 10px;
 `

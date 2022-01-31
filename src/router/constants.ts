@@ -11,10 +11,12 @@ const ROUTE_NAMES = createConstants(
   'sport',
   'sportMatches',
   'sportLive',
-  'sportDate'
+  'sportDate',
+  'match',
+  'matchReview',
 )
 export type RouteNamesType = keyof typeof ROUTE_NAMES
 
-const ROUTE_PARAMS = createConstants('langSlug', 'sportSlug', 'sportDate')
+const ROUTE_PARAMS = createConstants('langSlug', 'sportSlug', 'sportDate', 'matchSlug')
 
 export { langSlugs, pageSlugs, ROUTE_NAMES, ROUTE_PARAMS }

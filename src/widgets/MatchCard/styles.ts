@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import Touchable from "src/components/Touchable/Touchable";
+import Touchable from 'src/components/Touchable/Touchable'
+import CommonLogo from 'src/components/CommonLogo/CommonLogo'
 
 export const Root = styled(Touchable)`
   padding: 20px 15px;
@@ -9,17 +10,17 @@ export const Root = styled(Touchable)`
   max-width: 210px;
   min-width: 130px;
   display: inline-block;
-  
+
   &:nth-child(1) {
-    background: #D84141;
+    background: #d84141;
   }
-  
+
   &:nth-child(2) {
-    background: #1F8FE9;
+    background: #1f8fe9;
   }
-  
+
   &:nth-child(3) {
-    background: #2B3439;
+    background: #2b3439;
   }
 `
 
@@ -41,6 +42,8 @@ export const Logos = styled.div`
   margin-bottom: 15px;
   height: 40px;
 `
+
+export const Logo = styled(CommonLogo).attrs({ size: 20 })``
 
 export const Team = styled.div`
   ${({ theme }) => theme.typography.text_14_24}

@@ -3,21 +3,16 @@ import { RouteNamesType } from 'src/router/constants'
 import { Route } from 'router5'
 import { FC } from 'react'
 
-const getRenderRoutes = (routes: Route[], name: string, index = 0, accRoutes: Route[] = []) => {
-  const splitNames = name.split('.')
-  const currentName = splitNames[index]
-  const hasMore = splitNames.length - 1 > index
-
-  const findRoute = routes.find(({ name }) => currentName)
+const getRenderRoutes = (routes: Route[], routeName: string, index = 0, acc: Route[] = []): Route[] => {
+  const currentName = routeName.split('.')[index]
+  const findRoute = routes.find(({ name }) => name === currentName)
 
   if (findRoute) {
-    accRoutes.push(findRoute)
+    acc.push(findRoute)
+    getRenderRoutes(findRoute?.children || [], routeName, index + 1, acc)
   }
 
-  if (hasMore && findRoute?.children) {
-    getRenderRoutes(findRoute.children, name, index + 1, accRoutes)
-  }
-  return accRoutes
+  return acc
 }
 
 const Noop: FC = ({ children }) => <>{children}</>
@@ -25,7 +20,7 @@ const Noop: FC = ({ children }) => <>{children}</>
 export const useRouteChildren = (parentRouteName: RouteNamesType) => {
   const { route, router } = useRoute()
   const { routes } = router.getDependencies()
-  const renderComponents = getRenderRoutes(routes, route.name).filter(({ component }) => !!component)
+  const renderComponents = getRenderRoutes(routes, route.name, 0, []).filter(({ component }) => !!component)
   const currentRouteIndex = renderComponents.findIndex(({ name }) => name === parentRouteName)
   const nextRouteIndex = currentRouteIndex !== -1 ? currentRouteIndex + 1 : -1
 

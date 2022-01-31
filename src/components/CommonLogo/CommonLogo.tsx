@@ -29,10 +29,6 @@ const CommonLogo: React.FC<CommonLogoProps> = ({
     iso = iso.toUpperCase()
   }
 
-  if (iso) {
-    iso = iso.toUpperCase()
-  }
-
   if (iso && iso.length === 2) {
     iso = alpha2ToIsoMap[iso]
   }
@@ -59,7 +55,7 @@ const CommonLogo: React.FC<CommonLogoProps> = ({
         <picture>
           <source suppressHydrationWarning data-srcset={`${x1} 1x, ${x3} 2x`} media='(min-width: 1600px)' />
           <source suppressHydrationWarning data-srcset={`${x1} 1x, ${x2} 2x`} media='(min-width: 320px)' />
-          <Styled.Image suppressHydrationWarning data-src={x1} alt={alt || iso} />
+          <Styled.Image suppressHydrationWarning data-src={x1} size={size} alt={alt || iso} />
         </picture>
       </Styled.Root>
     )
@@ -74,7 +70,7 @@ const CommonLogo: React.FC<CommonLogoProps> = ({
         withBackground={withBackground}
         withBorder={withBorder}
       >
-        {typeof src === 'string' ? <Styled.Image src={src} /> : src}
+        {typeof src === 'string' ? <Styled.Image src={src} size={size} /> : src}
       </Styled.Root>
     )
   }

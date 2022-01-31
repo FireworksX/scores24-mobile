@@ -2,7 +2,8 @@ import React from 'react'
 import * as Styled from './styles'
 import Link from 'src/widgets/Link/Link'
 import { buildName } from 'src/utils/buildName'
-import { ROUTE_NAMES } from '../../../../router/constants'
+import { ROUTE_NAMES } from 'src/router/constants'
+import { useRouter } from 'src/hooks/useRouter'
 
 interface HeaderProps {
   className?: string
@@ -36,6 +37,7 @@ const sports = [
 ]
 
 const Header: React.FC<HeaderProps> = ({ className }) => {
+  const { langSlug } = useRouter()
   return (
     <Styled.Root className={className}>
       <Styled.Top>
@@ -49,9 +51,9 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
         {sports.map(({ name, slug }) => (
           <Styled.SportItem
             key={slug}
-            linkName={buildName(ROUTE_NAMES.lang, ROUTE_NAMES.sport)}
+            linkName={buildName(ROUTE_NAMES.lang, ROUTE_NAMES.sport, ROUTE_NAMES.sportMatches)}
             params={{
-              langSlug: 'ru',
+              langSlug,
               sportSlug: slug
             }}
           >

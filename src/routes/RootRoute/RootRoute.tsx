@@ -4,6 +4,7 @@ import * as Styled from './styles'
 import { GlobalStyle } from 'src/styles/GlobalStyle'
 import { route } from 'src/hoc/route'
 import { ROUTE_NAMES } from 'src/router/constants'
+import 'src/utils/dayjs-timezone'
 
 const RootRoute: React.FC = ({ children }) => {
   return (

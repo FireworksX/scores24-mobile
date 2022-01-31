@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { CommonLogoSize } from './CommonLogo'
+import BaseImage from 'src/components/BaseImage/BaseImage'
 
 interface Props {
   size?: CommonLogoSize | 'flag'
@@ -35,7 +36,7 @@ export const Root = styled.span<Props>`
   ${({ withBorder }) => withBorder && `border: 1px solid var(--rgb-color-border);`}
 `
 
-export const Image = styled.img`
+export const Image = styled(BaseImage)`
   max-width: 100%;
   max-height: 100%;
   display: block;

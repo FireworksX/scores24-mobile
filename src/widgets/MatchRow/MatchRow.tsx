@@ -1,27 +1,47 @@
 import React from 'react'
 import * as Styled from './styles'
+import { useRouter } from 'src/hooks/useRouter'
+import { buildName } from '../../utils/buildName'
+import { ROUTE_NAMES } from '../../router/constants'
+
+interface Match {
+  matchDate: string
+  slug: string
+  teams: {
+    name: string
+    logo: string
+    slug: string
+  }[]
+}
 
 interface MatchRowProps {
   className?: string
+  match: Match
 }
 
-const MatchRow: React.FC<MatchRowProps> = ({ className }) => {
+const MatchRow: React.FC<MatchRowProps> = ({ className, match }) => {
+  const { sportSlug, langSlug } = useRouter()
+
   return (
     <Styled.Root className={className}>
       <Styled.LeftSide>
         <Styled.Time>20:40</Styled.Time>
       </Styled.LeftSide>
-      <Styled.Teams>
-        <Styled.TeamRow>
-          <Styled.Logo src='https://cdn.scores24.ru/upload/team/w20-h20/621/2e4/ae04abc5c947467e81e702ff0c7682b709.png' />
-          <Styled.Name>Мельбурн Виктори</Styled.Name>
-          <Styled.Score>-</Styled.Score>
-        </Styled.TeamRow>
-        <Styled.TeamRow>
-          <Styled.Logo src='https://cdn.scores24.ru/upload/team/w20-h20/bae/9ab/5ac8ce1657b7cc59b8337b4efe50ba7052.png' />
-          <Styled.Name>Сидней</Styled.Name>
-          <Styled.Score>-</Styled.Score>
-        </Styled.TeamRow>
+      <Styled.Teams
+        linkName={buildName(ROUTE_NAMES.lang, ROUTE_NAMES.sport, ROUTE_NAMES.match, ROUTE_NAMES.matchReview)}
+        params={{
+          langSlug,
+          sportSlug,
+          matchSlug: match?.slug
+        }}
+      >
+        {match.teams.map(team => (
+          <Styled.TeamRow key={team?.slug}>
+            <Styled.Logo src={team.logo} />
+            <Styled.Name>{team.name}</Styled.Name>
+            <Styled.Score>-</Styled.Score>
+          </Styled.TeamRow>
+        ))}
       </Styled.Teams>
     </Styled.Root>
   )

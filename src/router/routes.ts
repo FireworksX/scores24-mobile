@@ -29,12 +29,24 @@ export const routes: Route[] = [
               {
                 name: ROUTE_NAMES.sportMatches,
                 path: '/',
+                component: routeComponents.SportMatchesRoute,
                 children: [
                   {
                     name: ROUTE_NAMES.sportDate,
                     path: `/:${ROUTE_PARAMS.sportDate}`
                   },
                   { name: ROUTE_NAMES.sportLive, path: '/live' }
+                ]
+              },
+              {
+                name: ROUTE_NAMES.match,
+                path: `/m-:${ROUTE_PARAMS.matchSlug}`,
+                children: [
+                  {
+                    name: ROUTE_NAMES.matchReview,
+                    path: '/',
+                    component: routeComponents.MatchRoute
+                  }
                 ]
               }
             ]

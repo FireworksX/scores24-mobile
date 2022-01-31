@@ -7,7 +7,18 @@ import * as path from 'path'
 export default defineConfig({
   resolve: {
     alias: {
-      'src': path.resolve(__dirname, './src')
+      src: path.resolve(__dirname, './src')
+    }
+  },
+  server: {
+    port: 4000,
+    proxy: {
+      '/graphql': {
+        target: 'https://scores24.live',
+        changeOrigin: true,
+        secure: false,
+        ws: true
+      }
     }
   },
   plugins: [
